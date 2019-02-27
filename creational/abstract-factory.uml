@@ -1,0 +1,55 @@
+@startuml
+
+package factories {
+    interface AbstractFactory {
+        createA()
+        createB()
+    }
+
+    class ConcreteFactory1 {
+        createA()
+        createB()
+    }
+
+    class ConcreteFactory2 {
+        createA()
+        createB()
+    }
+
+    ConcreteFactory1 -up-|> AbstractFactory
+    ConcreteFactory2 -up-|> AbstractFactory
+}
+
+package productA {
+    interface AbstractProductA
+
+    class ProductA1
+    class ProductA2
+
+    ProductA1 -up-|> AbstractProductA
+    ProductA2 -up-|> AbstractProductA
+}
+
+package productB {
+    interface AbstractProductB
+
+    class ProductB1
+    class ProductB2
+
+    ProductB1 -up-|> AbstractProductB
+    ProductB2 -up-|> AbstractProductB
+}
+
+ConcreteFactory1 ..> ProductA1 : instantiate
+ConcreteFactory1 ..> ProductB1 : instantiate
+
+ConcreteFactory2 ..> ProductA2 : instantiate
+ConcreteFactory2 ..> ProductB2 : instantiate
+
+class Client
+
+Client ..> AbstractFactory : import
+Client ..> AbstractProductA : import
+Client ..> AbstractProductB : import
+
+@enduml
