@@ -1,6 +1,6 @@
 @startuml
 
-!include ../../dependencies/plantuml-bells-and-whistles/release/theme/darcula.puml
+!include ../../dependencies/theme-wrapper/theme.uml
 
 header UML Design Patterns - Creational
 title Abstract Factory
