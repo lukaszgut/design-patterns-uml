@@ -1,0 +1,3 @@
+[submodule "dependencies/plantuml-bells-and-whistles"]
+	path = dependencies/plantuml-bells-and-whistles
+	url = https://github.com/DaniilSolovyov/plantuml-bells-and-whistles.git
