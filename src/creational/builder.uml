@@ -1,0 +1,33 @@
+@startuml
+
+!include ../../dependencies/plantuml-bells-and-whistles/release/theme/darcula.puml
+
+header UML Design Patterns - Creational
+title Builder
+
+class Director {
+    builder : Builder
+    construct()
+}
+
+note right of Director::construct
+    (*this).builder.buildPart()
+end note
+
+interface Builder {
+    buildPart()
+}
+
+class ConcreteBuilder {
+    buildPart()
+    getResult() : Product
+}
+
+class Product {
+}
+
+Director o-- Builder
+Builder <|-- ConcreteBuilder
+Product <.. ConcreteBuilder : create
+
+@enduml
