@@ -1,0 +1,32 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Factory Method
+
+interface Creator {
+    factoryMethod() : Product
+}
+
+class ConcreteCreator {
+    factoryMethod() : Product
+}
+
+note right of ConcreteCreator::factoryMethod
+    create ConcreteProduct, return as interface
+end note
+
+interface Product {
+}
+
+class ConcreteProduct {
+}
+
+ConcreteCreator ..|> Creator : implements
+ConcreteProduct ..|> Product : implements
+
+Creator --> Product : produce
+ConcreteCreator ..> ConcreteProduct : create
+
+@enduml
