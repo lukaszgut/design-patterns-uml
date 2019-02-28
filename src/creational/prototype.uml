@@ -1,0 +1,42 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Prototype
+
+class Client {
+    +operation()
+}
+
+note right of Client::operation
+    Prototype *p = prototype.clone();
+    ConcretePrototypeA *pa = prototypeA.clone();
+end note
+
+interface Prototype {
+    +clone()
+}
+
+Client .left.> Prototype : import
+
+class ConcretePrototypeA {
+    +clone()
+}
+
+class ConcretePrototypeB {
+    +clone()
+}
+
+ConcretePrototypeA .down.|> Prototype
+ConcretePrototypeB .up.|> Prototype
+
+note right of ConcretePrototypeA::clone
+    Return copy of itself
+end note
+
+note right of ConcretePrototypeB::clone
+    Return copy of itself
+end note
+
+@enduml
