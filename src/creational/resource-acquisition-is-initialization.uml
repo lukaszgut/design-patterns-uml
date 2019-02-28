@@ -1,0 +1,24 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Resource Acquisition Is Initialization
+
+class Object
+
+class User {
+    -operate()
+}
+
+note right of User::operate
+    {
+        // code
+        Object object;
+        // more code
+    } // here object is destroyed
+end note
+
+User .down.> Object : uses
+
+@enduml
