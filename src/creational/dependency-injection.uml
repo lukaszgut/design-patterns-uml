@@ -1,0 +1,56 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Dependency Injection
+
+package serviceA {
+    interface ServiceA {
+        doSomething()
+    }
+
+    class ConcreteServiceA {
+    }
+
+    ConcreteServiceA ..|> ServiceA : implements
+}
+
+package serviceB {
+    interface ServiceB {
+        doSomething()
+    }
+
+    class ConcreteServiceB {
+    }
+
+    ConcreteServiceB ..|> ServiceB : implements
+}
+
+class Client {
+    setServiceA(ServiceA)
+    setServiceB(ServiceB)
+    performAction()
+    serviceA
+    serviceB
+}
+
+Client --> ServiceA
+Client --> ServiceB
+
+class Injector {
+}
+
+Injector ..> Client : create, inject
+Injector ..> ConcreteServiceA : create
+Injector ..> ConcreteServiceB : create
+
+Client ..> Service : uses
+
+note right of Client::performAction
+    this->serviceA->doSomething();
+    this->serviceB->doSomethingElse();
+end note
+
+
+@enduml
