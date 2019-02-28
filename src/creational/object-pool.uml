@@ -1,0 +1,22 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Object Pool
+
+class Client
+class ReusableObject
+
+class ObjectPool {
+    +acquireObject() : ReusableObject
+    +releaseObject(obj : ReusableObject) : void
+    -internalStorage : array<ReusableObject, SIZE>
+    -{static}SIZE
+}
+
+Client "0..*" --> "1" ObjectPool : acquire object
+Client "1" --> "0..*" ReusableObject : uses
+ObjectPool "1" o-- "0..*" ReusableObject : stores
+
+@enduml
