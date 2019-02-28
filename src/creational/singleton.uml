@@ -1,0 +1,28 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Singleton
+
+class Singleton {
+    -singleton : Singleton
+    -Singleton()
+    +{static}getInstance() : Singleton
+}
+
+note right of Singleton::singleton
+    Holds private instance of own type
+end note
+
+note right of Singleton::Singleton()
+    Constructors, assignment operators,
+    copy operators are all private or deleted
+end note
+
+note right of Singleton::getInstance
+    The only access is provided
+    through the static public method
+end note
+
+@enduml
