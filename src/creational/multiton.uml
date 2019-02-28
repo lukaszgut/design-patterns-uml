@@ -1,0 +1,24 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Multiton
+
+class Multiton {
+    -instances: Map<Key, Multiton>
+    -Multiton()
+    +getInstance(Key) : Multiton
+}
+
+note right of Multiton::instances
+    Use map internally to assign an instance
+    of Multiton to the specific Key
+end note
+
+note right of Multiton::getInstance
+    Access one of the instances of Multiton
+    only by the given Key
+end note
+
+@enduml
