@@ -7,18 +7,18 @@ title Abstract Factory
 
 package factories {
     interface AbstractFactory {
-        createA()
-        createB()
+        +createA()
+        +createB()
     }
 
     class ConcreteFactory1 {
-        createA()
-        createB()
+        +createA()
+        +createB()
     }
 
     class ConcreteFactory2 {
-        createA()
-        createB()
+        +createA()
+        +createB()
     }
 
     ConcreteFactory1 -up-|> AbstractFactory

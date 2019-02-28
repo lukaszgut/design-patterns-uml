@@ -5,13 +5,12 @@
 header UML Design Patterns - Creational
 title Lazy Initialization
 
-class HeavyObject {
-}
+class HeavyObject
 
 class User {
-    getHeavyObject() : HeavyObject
-    isHeavyObjectCreated
-    heavyObject
+    +getHeavyObject() : HeavyObject
+    -isHeavyObjectCreated
+    -heavyObject
 }
 
 note top of User

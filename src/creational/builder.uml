@@ -6,8 +6,8 @@ header UML Design Patterns - Creational
 title Builder
 
 class Director {
-    builder : Builder
-    construct()
+    -builder : Builder
+    +construct()
 }
 
 note right of Director::construct
@@ -15,12 +15,12 @@ note right of Director::construct
 end note
 
 interface Builder {
-    buildPart()
+    +buildPart()
 }
 
 class ConcreteBuilder {
-    buildPart()
-    getResult() : Product
+    +buildPart()
+    +getResult() : Product
 }
 
 class Product {

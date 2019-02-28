@@ -7,39 +7,36 @@ title Dependency Injection
 
 package serviceA {
     interface ServiceA {
-        doSomething()
+        +doSomething()
     }
 
-    class ConcreteServiceA {
-    }
+    class ConcreteServiceA
 
     ConcreteServiceA ..|> ServiceA : implements
 }
 
 package serviceB {
     interface ServiceB {
-        doSomething()
+        +doSomething()
     }
 
-    class ConcreteServiceB {
-    }
+    class ConcreteServiceB
 
     ConcreteServiceB ..|> ServiceB : implements
 }
 
 class Client {
-    setServiceA(ServiceA)
-    setServiceB(ServiceB)
-    performAction()
-    serviceA
-    serviceB
+    +setServiceA(ServiceA)
+    +setServiceB(ServiceB)
+    +performAction()
+    -serviceA
+    -serviceB
 }
 
 Client --> ServiceA
 Client --> ServiceB
 
-class Injector {
-}
+class Injector
 
 Injector ..> Client : create, inject
 Injector ..> ConcreteServiceA : create

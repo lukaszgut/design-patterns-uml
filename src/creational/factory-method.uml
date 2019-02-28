@@ -6,22 +6,19 @@ header UML Design Patterns - Creational
 title Factory Method
 
 interface Creator {
-    factoryMethod() : Product
+    +factoryMethod() : Product
 }
 
 class ConcreteCreator {
-    factoryMethod() : Product
+    +factoryMethod() : Product
 }
 
 note right of ConcreteCreator::factoryMethod
     create ConcreteProduct, return as interface
 end note
 
-interface Product {
-}
-
-class ConcreteProduct {
-}
+interface Product
+class ConcreteProduct
 
 ConcreteCreator ..|> Creator : implements
 ConcreteProduct ..|> Product : implements
