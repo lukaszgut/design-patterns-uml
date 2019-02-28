@@ -1,0 +1,34 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Lazy Initialization
+
+class HeavyObject {
+}
+
+class User {
+    getHeavyObject() : HeavyObject
+    isHeavyObjectCreated
+    heavyObject
+}
+
+note top of User
+    User creates object of type HeavyObject
+    when it is first accessed, because its
+    creation is expensive.
+end note
+
+note right of User::getHeavyObject
+    if(!isHeavyObjectCreated) {
+        heavyObject = new HeavyObject();
+    }
+    return heavyObject;
+end note
+
+User --> HeavyObject : creates, uses
+
+
+
+@enduml
