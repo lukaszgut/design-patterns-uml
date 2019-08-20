@@ -18,10 +18,12 @@ together {
 
     class Composite {
         +operation()
+        +add(child : Component)
+        +remove(child : Component)
     }
 }
 
-Client --> Component : uses
+Client -left-> Component : uses
 
 Leaf -- Composite
 (Leaf, Composite) --|> Component
