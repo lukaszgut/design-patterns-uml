@@ -3,7 +3,7 @@
 !include ../../dependencies/theme-wrapper/theme.uml
 
 header UML Design Patterns - Creational
-title Bridge
+title Composite
 
 class Client
 
