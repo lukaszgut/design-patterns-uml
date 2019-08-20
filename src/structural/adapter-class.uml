@@ -1,0 +1,44 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Class Adapter
+
+class Client {
+    -adapter : Adapter
+    +doWork()
+}
+
+interface Target {
+    +operation()
+}
+
+class Adapter {
+    +operation()
+}
+
+class Adaptee1 {
+    +specificOperation1()
+}
+
+class AdapteeN {
+    +specificOperationN()
+}
+
+Client --> Target : uses
+Adapter ..|> Target
+Adapter --|> Adaptee1
+Adapter --|> AdapteeN
+
+note right of Adapter::operation
+specificOperation1();
+specificOperationN();
+end note
+
+note left of Client::doWork
+adapter.operation()
+end note
+
+@enduml
+

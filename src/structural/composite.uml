@@ -1,0 +1,36 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Bridge
+
+class Client
+
+interface Component {
+    +operation()
+}
+
+together {
+    class Leaf {
+        +operation()
+    }
+
+    class Composite {
+        +operation()
+    }
+}
+
+Client --> Component : uses
+
+Leaf -- Composite
+(Leaf, Composite) --|> Component
+Composite o-- "1..*" Component : children
+
+note left of Composite::operation
+for (child : children) {
+    child.operation()
+}
+end note
+@enduml
+

@@ -1,0 +1,35 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Bridge
+
+class Abstraction {
+    -impl : Implementor
+    +function()
+}
+
+class Implementor {
+    +implementation()
+}
+
+class RefinedAbstraction {
+    +refinedFunction()
+}
+
+class ConcreteImplementor {
+    +implementation()
+}
+
+RefinedAbstraction -up-|> Abstraction
+ConcreteImplementor -up-|> Implementor
+Abstraction o-right- Implementor
+
+note left of Abstraction::function
+this.impl.implementation();
+end note
+
+@enduml
+
+

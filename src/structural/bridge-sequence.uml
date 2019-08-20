@@ -1,0 +1,12 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Bridge sequence diagram
+
+Client -> Abstraction : function()
+Abstraction -> ConcreteImplementation : implementation()
+
+@enduml
+
