@@ -1,0 +1,36 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Decorator
+
+class Client
+
+interface Component {
+    +operation()
+}
+
+together {
+    class ConcreteComponent {
+        +operation()
+    }
+
+    class Decorator {
+        -component : Component
+        +operation()
+    }
+}
+
+class ConcreteDecorator {
+    +operation()
+}
+
+ConcreteComponent -- Decorator
+(ConcreteComponent, Decorator) --|> Component
+ConcreteDecorator --|> Decorator
+Decorator o-- Component
+Client --> Component : uses
+@enduml
+
+
