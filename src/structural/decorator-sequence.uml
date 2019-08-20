@@ -1,0 +1,16 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Decorator sequence diagram
+
+Client -> ConcreteDecorator1 : operation()
+ConcreteDecorator1 -> ConcreteDecorator2 : operation()
+ConcreteDecorator2 -> Component : operation()
+
+ConcreteDecorator2 -> ConcreteDecorator2 : addBehavior()
+ConcreteDecorator1 -> ConcreteDecorator1 : addBehavior()
+
+@enduml
+
