@@ -1,0 +1,40 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Facade
+
+class Client
+
+class Facade {
+    +function()
+}
+
+package Subsystem <<rectangle>> {
+    together {
+        class ClassOne {
+        }
+        class ClassTwo {
+        }
+        class ClassThree {
+        }
+        class ClassFour {
+        }
+    }
+    class ClassZero {
+    }
+}
+
+Client --> Facade
+Facade --> ClassOne
+Facade --> ClassTwo
+Facade --> ClassThree
+Facade --> ClassFour
+
+ClassOne --|> ClassZero
+ClassTwo --|> ClassZero
+ClassThree --> ClassFour
+ClassFour --> ClassOne
+@enduml
+

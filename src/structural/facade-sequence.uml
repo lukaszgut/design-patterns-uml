@@ -1,0 +1,15 @@
+@startuml
+
+!include ../../dependencies/theme-wrapper/theme.uml
+
+header UML Design Patterns - Creational
+title Facade sequence diagram
+
+Client -> Facade : function()
+Facade -> ClassOne
+Facade -> ClassTwo
+Facade -> ClassThree
+Facade -> ClassFour
+
+@enduml
+

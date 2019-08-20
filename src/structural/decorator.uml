@@ -33,4 +33,3 @@ Decorator o-- Component
 Client --> Component : uses
 @enduml
 
-
